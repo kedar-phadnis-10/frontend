@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.custom-table{
+    position: relative;
+    width: 90%;
+    height: 90%;
+}

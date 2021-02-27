@@ -46,6 +46,8 @@ export function Colleges(){
         setCollegeDetails(res);
     }
 
+
+
     useEffect(() =>{
         getColleges().then(res =>{
             console.log("mountedd..")
@@ -69,7 +71,6 @@ export function Colleges(){
                             history.push(`/colleges/${record._id}`);
                         }
                     }
-                    
                 }} 
                 columns={columns} 
             />

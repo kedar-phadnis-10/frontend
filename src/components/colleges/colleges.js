@@ -69,6 +69,7 @@ export function Colleges(){
                             history.push(`/colleges/${record._id}`);
                         }
                     }
+                    
                 }} 
                 columns={columns} 
             />

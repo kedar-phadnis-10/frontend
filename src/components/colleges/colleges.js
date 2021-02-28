@@ -1,9 +1,9 @@
-import { Button, Input, Space, Table } from "antd";
+import { Table ,Layout} from "antd";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getColleges } from "../../utils/fetchCalls";
 import './colleges.css';
-
+const {Content,Header} = Layout;
 export function Colleges(){
 
     const [collegeDetails, setCollegeDetails] = useState(null);
@@ -59,7 +59,20 @@ export function Colleges(){
     const history = useHistory();
     return(
 
-        <div className = "container">
+        <Layout>
+            <Header>
+                    <h1 style={{color:'white',textAlign:'center'}}>Colleges</h1>
+                </Header>
+            <Content 
+                style={{
+                    margin:'0 auto',
+                    width:'100%',
+                    alignItems:'center',
+                    justifyContent:'center'
+                }}
+                
+            >
+                
             <Table 
                 className= "custom-table"
                 bordered
@@ -74,7 +87,8 @@ export function Colleges(){
                 }} 
                 columns={columns} 
             />
-        </div>
+            </Content>
+        </Layout>
 
     )
 }

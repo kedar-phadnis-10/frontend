@@ -15,7 +15,6 @@ async function getColleges(){
 
 async function getCollegeDetails(id){
     const response = await axios.get(`${BASE_URL}/colleges/${id}`);
-    console.log(response.data);
     return response.data;
 }
 

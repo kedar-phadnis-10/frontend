@@ -1,6 +1,6 @@
 const { default: axios } = require("axios");
 
-const BASE_URL="http://localhost:5000";
+const BASE_URL="https://oneshot-backend.herokuapp.com";
 
 export const getColleges = async()=>{
     // const response = await fetch(`${BASE_URL}/colleges`, {

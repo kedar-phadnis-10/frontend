@@ -1,4 +1,4 @@
-import { Table ,Layout} from "antd";
+import { Table ,Layout, Skeleton} from "antd";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getColleges } from "../../utils/fetchCalls";
@@ -7,7 +7,7 @@ const {Content,Header} = Layout;
 export function Colleges(){
 
     const [collegeDetails, setCollegeDetails] = useState(null);
-
+    const [loading,setLoading] = useState(true);
 
     const columns = [
         {
@@ -25,11 +25,6 @@ export function Colleges(){
             dataIndex: 'country',
             key: 'country',
         },
-        // {
-        //     title: 'City',
-        //     dataIndex: 'city',
-        //     key: 'city',
-        // },
         {
             title: 'State',
             dataIndex: 'state',
@@ -46,12 +41,10 @@ export function Colleges(){
         setCollegeDetails(res);
     }
 
-
-
     useEffect(() =>{
         getColleges().then(res =>{
-            console.log("mountedd..")
             updateCollegeDetails(res);
+            setLoading(false);
         })
 
     }, [])
@@ -61,8 +54,8 @@ export function Colleges(){
 
         <Layout>
             <Header>
-                    <h1 style={{color:'white',textAlign:'center'}}>Colleges</h1>
-                </Header>
+                <h1 style={{color:'white',textAlign:'center'}}>Colleges</h1>
+            </Header>
             <Content 
                 style={{
                     margin:'0 auto',
@@ -72,7 +65,10 @@ export function Colleges(){
                 }}
                 
             >
-                
+            <Skeleton
+                active
+                loading={loading}
+            >
             <Table 
                 className= "custom-table"
                 bordered
@@ -87,6 +83,7 @@ export function Colleges(){
                 }} 
                 columns={columns} 
             />
+            </Skeleton>
             </Content>
         </Layout>
 
